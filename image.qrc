@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resource/Image/Back.png</file>
+        <file>Resource/Image/Daidon.png</file>
+        <file>Resource/Image/Daikatsu.png</file>
+        <file>Resource/Image/Don.png</file>
+        <file>Resource/Image/Doramu.png</file>
+        <file>Resource/Image/Hantei.png</file>
+        <file>Resource/Image/Hitaridon.png</file>
+        <file>Resource/Image/Hitarikatsu.png</file>
+        <file>Resource/Image/Katsu.png</file>
+        <file>Resource/Image/Migidon.png</file>
+        <file>Resource/Image/Migikatsu.png</file>
+        <file>Resource/Image/Setting.png</file>
+    </qresource>
+</RCC>
