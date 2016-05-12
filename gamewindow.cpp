@@ -1,6 +1,10 @@
 #include "gamewindow.h"
 #include "ui_gamewindow.h"
 
+#include <cstdlib>
+#include <new>
+#include <ctime>
+
 GameWindow::GameWindow(QWidget *parent):
 QMainWindow(parent) , ui(new Ui::GameWindow)
 {
@@ -17,6 +21,8 @@ QMainWindow(parent) , ui(new Ui::GameWindow)
     anime->addItem(hanteiItem);;
     ui->graphicsView->setScene(anime);
 
+    timer = new QTimer;
+
     newGame();
 
 }
@@ -24,4 +30,25 @@ QMainWindow(parent) , ui(new Ui::GameWindow)
 GameWindow::~GameWindow(){delete ui;}
 
 void GameWindow::newGame(){
+
+    srand(time(NULL));
+    combo = 0 , score = 0;
+    save.clear();
+
+    ull ti = 0;
+
+    //vvvvv basic vvvv
+    int interval = 1000;
+    while(ti < 28000){
+
+        ti += interval;
+        gen = new Note(rand() % 4 + 1 , ti , 6.4);
+        save.push_back(gen);
+
+    }
+    //^^^^^ basic ^^^^^
+
+}
+
+void GameWindow::addNote(){
 }

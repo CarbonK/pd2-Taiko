@@ -1,6 +1,8 @@
 #ifndef GAMEWINDOW_H
 #define GAMEWINDOW_H
 
+#include "note.h"
+
 #include <QDebug>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
@@ -26,8 +28,17 @@ public QMainWindow
 
         Ui::GameWindow *ui;
         QGraphicsScene *anime;
+        int combo;
+        ull score;
+        QVector<Note*> save;
+        Note *gen;
+        QTimer *timer;
 
         void newGame();
+
+    private slots:
+
+        void addNote();
 
 };
 
