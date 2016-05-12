@@ -22,6 +22,8 @@ QMainWindow(parent) , ui(new Ui::GameWindow)
     ui->graphicsView->setScene(anime);
 
     timer = new QTimer;
+    connect(timer , SIGNAL(timeout()) , this , SLOT(realTimer()));
+    connect(timer , SIGNAL(timeout()) , this , SLOT(addNote()));
 
     newGame();
 
@@ -32,8 +34,11 @@ GameWindow::~GameWindow(){delete ui;}
 void GameWindow::newGame(){
 
     srand(time(NULL));
-    combo = 0 , score = 0;
+    combo = 0 , score = 0 , curTime = 0;
     save.clear();
+
+    ui->ScoreLCD_basic->display((int)score);
+    ui->TimeLCD_basic->display(30 - (int)curTime / 1000);
 
     ull ti = 0;
 
@@ -47,6 +52,15 @@ void GameWindow::newGame(){
 
     }
     //^^^^^ basic ^^^^^
+
+    timer->start(20);
+
+}
+
+void GameWindow::realTimer(){
+
+    curTime += 20;
+    ui->TimeLCD_basic->display(30 - (int)curTime / 1000);
 
 }
 

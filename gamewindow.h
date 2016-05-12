@@ -33,11 +33,13 @@ public QMainWindow
         QVector<Note*> save;
         Note *gen;
         QTimer *timer;
+        ull curTime;
 
         void newGame();
 
     private slots:
 
+        void realTimer();
         void addNote();
 
 };
