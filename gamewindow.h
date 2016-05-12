@@ -37,11 +37,13 @@ public QMainWindow
         QVector<Note*>::iterator unadded;
 
         void newGame();
+        void judge(int);
 
     private slots:
 
         void realTimer();
         void addNote();
+        void keyPressEvent(QKeyEvent *k);
 
 };
 

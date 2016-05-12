@@ -58,6 +58,12 @@ void GameWindow::newGame(){
 
 }
 
+void GameWindow::judge(int k){
+
+
+
+}
+
 void GameWindow::realTimer(){
 
     curTime += 20;
@@ -74,6 +80,34 @@ void GameWindow::addNote(){
         anime->addItem(*unadded);
         connect(timer , SIGNAL(timeout()) , *unadded , SLOT(moveNote()));
         unadded++;
+
+    }
+
+}
+
+void GameWindow::keyPressEvent(QKeyEvent *k){
+
+    switch (k->key()){
+
+        case Qt::Key_F:
+
+            judge(Qt::Key_F);
+            break;
+
+        case Qt::Key_G:
+
+            judge(Qt::Key_G);
+            break;
+
+        case Qt::Key_H:
+
+            judge(Qt::Key_H);
+            break;
+
+        case Qt::Key_J:
+
+            judge(Qt::Key_J);
+            break;
 
     }
 
