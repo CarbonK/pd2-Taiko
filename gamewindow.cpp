@@ -54,6 +54,7 @@ void GameWindow::newGame(){
     //^^^^^ basic ^^^^^
 
     timer->start(20);
+    unadded = save.begin();
 
 }
 
@@ -61,8 +62,19 @@ void GameWindow::realTimer(){
 
     curTime += 20;
     ui->TimeLCD_basic->display(30 - (int)curTime / 1000);
+    if(curTime / 1000 == 30) timer->stop();
 
 }
 
 void GameWindow::addNote(){
+
+    //unadded != save.end() first or crash
+    if(unadded != save.end() && curTime == (*unadded)->getGenTime()){
+
+        anime->addItem(*unadded);
+        connect(timer , SIGNAL(timeout()) , *unadded , SLOT(moveNote()));
+        unadded++;
+
+    }
+
 }

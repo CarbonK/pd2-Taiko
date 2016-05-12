@@ -34,6 +34,7 @@ public QMainWindow
         Note *gen;
         QTimer *timer;
         ull curTime;
+        QVector<Note*>::iterator unadded;
 
         void newGame();
 
