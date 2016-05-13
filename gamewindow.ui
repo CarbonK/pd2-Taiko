@@ -132,6 +132,12 @@
      <enum>QFrame::NoFrame</enum>
     </property>
    </widget>
+   <zorder>graphicsView</zorder>
+   <zorder>TimeLCD_basic</zorder>
+   <zorder>Time_basic</zorder>
+   <zorder>Score_basic</zorder>
+   <zorder>ScoreLCD_basic</zorder>
+   <zorder>Doramu</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

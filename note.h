@@ -19,6 +19,7 @@ public QObject , public QGraphicsPixmapItem
         ~Note();
 
         ull getGenTime();
+        int getNoteType();
 
     private:
 
@@ -27,9 +28,14 @@ public QObject , public QGraphicsPixmapItem
         double moveSpeed;
         QPixmap *img;
 
+    signals:
+
+        void deleteNote(Note*);
+
     public slots:
 
         void moveNote();
+        void detectPos();
 
 };
 

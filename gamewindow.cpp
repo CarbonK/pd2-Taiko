@@ -24,6 +24,7 @@ QMainWindow(parent) , ui(new Ui::GameWindow)
     timer = new QTimer;
     connect(timer , SIGNAL(timeout()) , this , SLOT(realTimer()));
     connect(timer , SIGNAL(timeout()) , this , SLOT(addNote()));
+    connect(timer , SIGNAL(timeout()) , this , SLOT(detectPos()));
 
     newGame();
 
@@ -55,14 +56,80 @@ void GameWindow::newGame(){
 
     timer->start(20);
     unadded = save.begin();
+    curNote = save.begin();
 
 }
 
-void GameWindow::judge(int k){
+void GameWindow::hitJudge(int k){
 
+    if(140 <= (*curNote)->x() && (*curNote)->x() <= 180){
 
+        if((*curNote)->getNoteType() <= 2){
+
+            if(k == Qt::Key_G || k == Qt::Key_H){
+
+                if(150 <= (*curNote)->x() && (*curNote)->x() <= 170){
+
+                    ++combo;
+                    score += 300;
+
+                }
+                else if((140 <= (*curNote)->x() && (*curNote)->x() < 150) && (170 < (*curNote)->x() && (*curNote)->x() < 180)){
+
+                    ++combo;
+                    score += 100;
+
+                }
+
+            }
+            else combo = 0;
+
+        }
+        else{
+
+            if(k == Qt::Key_F || k == Qt::Key_J){
+
+                if(150 <= (*curNote)->x() && (*curNote)->x() <= 170){
+
+                    ++combo;
+                    score += 300;
+
+                }
+                else if((140 <= (*curNote)->x() && (*curNote)->x() < 150) && (170 < (*curNote)->x() && (*curNote)->x() < 180)){
+
+                    ++combo;
+                    score += 100;
+
+                }
+
+            }
+            else combo = 0;
+
+        }
+
+        removeNote();
+
+    }
+
+    ui->ScoreLCD_basic->display((int)score);
 
 }
+
+void GameWindow::removeNote(){
+
+    anime->removeItem(*curNote);
+    (*curNote)->~Note();
+    ++curNote;
+
+}
+
+void GameWindow::removeNote(Note *n){
+
+    anime->removeItem(n);
+    n->~Note();
+
+}
+
 
 void GameWindow::realTimer(){
 
@@ -79,6 +146,8 @@ void GameWindow::addNote(){
 
         anime->addItem(*unadded);
         connect(timer , SIGNAL(timeout()) , *unadded , SLOT(moveNote()));
+        connect(timer , SIGNAL(timeout()) , *unadded , SLOT(detectPos()));
+        connect(*unadded , SIGNAL(deleteNote(Note*)) , this , SLOT(removeNote(Note*)));
         unadded++;
 
     }
@@ -91,24 +160,26 @@ void GameWindow::keyPressEvent(QKeyEvent *k){
 
         case Qt::Key_F:
 
-            judge(Qt::Key_F);
+            hitJudge(Qt::Key_F);
             break;
 
         case Qt::Key_G:
 
-            judge(Qt::Key_G);
+            hitJudge(Qt::Key_G);
             break;
 
         case Qt::Key_H:
 
-            judge(Qt::Key_H);
+            hitJudge(Qt::Key_H);
             break;
 
         case Qt::Key_J:
 
-            judge(Qt::Key_J);
+            hitJudge(Qt::Key_J);
             break;
 
     }
 
 }
+
+void GameWindow::detectPos(){if((*curNote)->x() < 140) ++curNote;}

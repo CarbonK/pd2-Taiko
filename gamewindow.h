@@ -35,15 +35,22 @@ public QMainWindow
         QTimer *timer;
         ull curTime;
         QVector<Note*>::iterator unadded;
+        QVector<Note*>::iterator curNote;
 
         void newGame();
-        void judge(int);
+        void hitJudge(int);
+
+    public slots:
+
+        void removeNote();
+        void removeNote(Note*);
 
     private slots:
 
         void realTimer();
         void addNote();
         void keyPressEvent(QKeyEvent *k);
+        void detectPos();
 
 };
 
