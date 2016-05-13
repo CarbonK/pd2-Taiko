@@ -14,12 +14,15 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         gamewindow.cpp \
-    note.cpp
+    note.cpp \
+    result.cpp
 
 HEADERS  += gamewindow.h \
-    note.h
+    note.h \
+    result.h
 
-FORMS    += gamewindow.ui
+FORMS    += gamewindow.ui \
+    result.ui
 
 RESOURCES += \
     image.qrc

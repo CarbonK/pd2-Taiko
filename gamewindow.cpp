@@ -135,7 +135,16 @@ void GameWindow::realTimer(){
 
     curTime += 20;
     ui->TimeLCD_basic->display(30 - (int)curTime / 1000);
-    if(curTime / 1000 == 30) timer->stop();
+    if(curTime / 1000 == 30){
+
+        timer->stop();
+
+        re = new Result(score , combo);
+        re->show();
+        connect(re , SIGNAL(accepted()) , this , SLOT(newGame()));
+        connect(re , SIGNAL(rejected()) , this , SLOT(close()));
+
+    }
 
 }
 

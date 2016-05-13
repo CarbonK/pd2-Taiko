@@ -2,6 +2,7 @@
 #define GAMEWINDOW_H
 
 #include "note.h"
+#include "result.h"
 
 #include <QDebug>
 #include <QGraphicsPixmapItem>
@@ -36,14 +37,15 @@ public QMainWindow
         ull curTime;
         QVector<Note*>::iterator unadded;
         QVector<Note*>::iterator curNote;
+        Result *re;
 
-        void newGame();
         void hitJudge(int);
 
     public slots:
 
         void removeNote();
         void removeNote(Note*);
+        void newGame();
 
     private slots:
 
