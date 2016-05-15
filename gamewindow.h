@@ -51,7 +51,7 @@ public QMainWindow
 
         void realTimer();
         void addNote();
-        void keyPressEvent(QKeyEvent *k);
+        void keyPressEvent(QKeyEvent*);
         void detectPos();
 
 };
