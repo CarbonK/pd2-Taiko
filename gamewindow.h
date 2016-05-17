@@ -30,6 +30,7 @@ public QMainWindow
         Ui::GameWindow *ui;
         QGraphicsScene *anime;
         int combo;
+        int maxCombo;
         ull score;
         QVector<Note*> save;
         Note *gen;
@@ -40,6 +41,7 @@ public QMainWindow
         Result *re;
 
         void hitJudge(int);
+        void hitImg(int);
 
     public slots:
 

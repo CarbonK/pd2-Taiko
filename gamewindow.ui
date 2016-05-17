@@ -132,12 +132,80 @@
      <enum>QFrame::NoFrame</enum>
     </property>
    </widget>
+   <widget class="QLabel" name="ldon">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>220</y>
+      <width>140</width>
+      <height>160</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="image.qrc">:/Resource/Image/ldon.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="rdon">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>220</y>
+      <width>140</width>
+      <height>160</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="image.qrc">:/Resource/Image/rdon.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lka">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>220</y>
+      <width>140</width>
+      <height>160</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="image.qrc">:/Resource/Image/lka.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="rka">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>220</y>
+      <width>140</width>
+      <height>160</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="image.qrc">:/Resource/Image/rka.png</pixmap>
+    </property>
+   </widget>
    <zorder>graphicsView</zorder>
    <zorder>TimeLCD_basic</zorder>
    <zorder>Time_basic</zorder>
    <zorder>Score_basic</zorder>
    <zorder>ScoreLCD_basic</zorder>
    <zorder>Doramu</zorder>
+   <zorder>ldon</zorder>
+   <zorder>rdon</zorder>
+   <zorder>lka</zorder>
+   <zorder>rka</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

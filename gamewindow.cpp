@@ -1,9 +1,10 @@
 #include "gamewindow.h"
 #include "ui_gamewindow.h"
 
+#include <algorithm>
 #include <cstdlib>
-#include <new>
 #include <ctime>
+#include <new>
 
 GameWindow::GameWindow(QWidget *parent):
 QMainWindow(parent) , ui(new Ui::GameWindow)
@@ -21,6 +22,11 @@ QMainWindow(parent) , ui(new Ui::GameWindow)
     anime->addItem(hanteiItem);;
     ui->graphicsView->setScene(anime);
 
+    ui->lka->hide();
+    ui->ldon->hide();
+    ui->rdon->hide();
+    ui->rka->hide();
+
     timer = new QTimer;
     connect(timer , SIGNAL(timeout()) , this , SLOT(realTimer()));
     connect(timer , SIGNAL(timeout()) , this , SLOT(addNote()));
@@ -30,7 +36,15 @@ QMainWindow(parent) , ui(new Ui::GameWindow)
 
 }
 
-GameWindow::~GameWindow(){delete ui;}
+GameWindow::~GameWindow(){
+
+    delete re;
+    delete gen;
+    delete timer;
+    delete anime;
+    delete ui;
+
+}
 
 void GameWindow::newGame(){
 
@@ -82,7 +96,11 @@ void GameWindow::hitJudge(int k){
                 }
 
             }
-            else combo = 0;
+            else{
+
+                combo = 0;
+
+            }
 
         }
         else{
@@ -103,7 +121,11 @@ void GameWindow::hitJudge(int k){
                 }
 
             }
-            else combo = 0;
+            else{
+
+                combo = 0;
+
+            }
 
         }
 
@@ -112,6 +134,38 @@ void GameWindow::hitJudge(int k){
     }
 
     ui->ScoreLCD_basic->display((int)score);
+
+}
+
+void GameWindow::hitImg(int k){
+
+    switch (k){
+
+        case Qt::Key_F:
+
+            ui->lka->show();
+            QTimer::singleShot(200 , ui->lka , SLOT(hide()));
+            break;
+
+        case Qt::Key_G:
+
+            ui->ldon->show();
+            QTimer::singleShot(200 , ui->ldon , SLOT(hide()));
+            break;
+
+        case Qt::Key_H:
+
+            ui->rdon->show();
+            QTimer::singleShot(200 , ui->rdon , SLOT(hide()));
+            break;
+
+        case Qt::Key_J:
+
+            ui->rka->show();
+            QTimer::singleShot(200 , ui->rka , SLOT(hide()));
+            break;
+
+    }
 
 }
 
@@ -170,21 +224,25 @@ void GameWindow::keyPressEvent(QKeyEvent *k){
         case Qt::Key_F:
 
             hitJudge(Qt::Key_F);
+            hitImg(Qt::Key_F);
             break;
 
         case Qt::Key_G:
 
             hitJudge(Qt::Key_G);
+            hitImg(Qt::Key_G);
             break;
 
         case Qt::Key_H:
 
             hitJudge(Qt::Key_H);
+            hitImg(Qt::Key_H);
             break;
 
         case Qt::Key_J:
 
             hitJudge(Qt::Key_J);
+            hitImg(Qt::Key_J);
             break;
 
     }

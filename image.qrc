@@ -6,11 +6,11 @@
         <file>Resource/Image/Don.png</file>
         <file>Resource/Image/Doramu.png</file>
         <file>Resource/Image/Hantei.png</file>
-        <file>Resource/Image/Hitaridon.png</file>
-        <file>Resource/Image/Hitarikatsu.png</file>
         <file>Resource/Image/Katsu.png</file>
-        <file>Resource/Image/Migidon.png</file>
-        <file>Resource/Image/Migikatsu.png</file>
         <file>Resource/Image/Setting.png</file>
+        <file>Resource/Image/ldon.png</file>
+        <file>Resource/Image/lka.png</file>
+        <file>Resource/Image/rdon.png</file>
+        <file>Resource/Image/rka.png</file>
     </qresource>
 </RCC>
